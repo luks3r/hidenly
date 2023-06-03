@@ -43,6 +43,9 @@ jobs:
     needs: build_site
     runs-on: ubuntu-latest
 
+    env:
+      BASE_PATH: '/hidenly'
+
     permissions:
       pages: write
       id-token: write
