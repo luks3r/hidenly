@@ -28,7 +28,7 @@ jobs:
 
       - name: build
         env:
-          BASE_PATH: '/your-repo-name'
+          BASE_PATH: '/hidenly'
         run: |
           npm run build
           touch build/.nojekyll
@@ -42,9 +42,6 @@ jobs:
   deploy:
     needs: build_site
     runs-on: ubuntu-latest
-
-    env:
-      BASE_PATH: '/hidenly'
 
     permissions:
       pages: write
