@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { drawerStore } from '@skeletonlabs/skeleton';
+	import { base } from '$app/paths';
 
 	function drawerClose(): void {
 		drawerStore.close();
@@ -17,7 +18,7 @@
 	<ul>
 		{#each menus as menu}
 			<li class="list-nav-item">
-				<a href={menu.href} on:click={drawerClose}>{menu.label}</a>
+				<a href="{base}{menu.href}" on:click={drawerClose}>{menu.label}</a>
 			</li>
 		{/each}
 	</ul>

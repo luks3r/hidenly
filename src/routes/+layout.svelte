@@ -9,6 +9,7 @@
 	import { AppBar, AppShell } from '@skeletonlabs/skeleton';
 	import { Drawer, drawerStore } from '@skeletonlabs/skeleton';
 
+	import { base } from '$app/paths';
 	import Navigation from '$lib/navigation/Navigation.svelte';
 
 	function drawerOpen(): void {
@@ -43,13 +44,13 @@
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<div class="flex items-center">
-                    <a href="/" class="no-underline hover:no-underline text-inherit">
-						<GithubIcon width="24" />
-                    </a>
-					<a href="/" class="no-undeline hover:nounderline text-inherit">
+					<a href="{base}/" class="no-underline hover:no-underline text-inherit">
 						<GithubIcon width="24" />
 					</a>
-                </div>
+					<a href="{base}/" class="no-undeline hover:nounderline text-inherit">
+						<GithubIcon width="24" />
+					</a>
+				</div>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
