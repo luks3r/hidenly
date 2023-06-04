@@ -1,5 +1,6 @@
 use bimap::BiMap;
 
+
 lazy_static::lazy_static! {
     static ref HEX_CHAR_MAP: BiMap<char, &'static str> = {
         let mut map = BiMap::new();
@@ -23,6 +24,8 @@ lazy_static::lazy_static! {
         map
     };
 }
+
+
 
 fn string_to_hex_str(input: &str) -> String {
     input
@@ -88,6 +91,14 @@ pub fn decode(input: &str) -> String {
     let unwrapped = unwrap(input);
     let hex_str = encoded_to_hex_str(&unwrapped);
     hex_str_to_string(hex_str.as_str())
+}
+
+pub fn encode_binary(input: &str, secret: Vec<u8>) -> String {
+    String::new()
+}
+
+pub fn decode_binary(input: &str) -> Vec<u8> {
+    Vec::new()
 }
 
 #[cfg(test)]

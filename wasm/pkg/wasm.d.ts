@@ -1,10 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
-* @param {string} name
-*/
-export function greet(name: string): void;
-/**
 * @param {string} input
 * @returns {string}
 */
@@ -15,18 +11,28 @@ export function decode(input: string): string;
 * @returns {string}
 */
 export function encode(input: string, secret: string): string;
+/**
+* @param {string} input
+* @param {Uint8Array} secret
+* @returns {string}
+*/
+export function encode_binary(input: string, secret: Uint8Array): string;
+/**
+* @param {string} input
+* @returns {Uint8Array}
+*/
+export function decode_binary(input: string): Uint8Array;
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
-  readonly greet: (a: number, b: number) => void;
-  readonly decode: (a: number, b: number, c: number) => void;
-  readonly encode: (a: number, b: number, c: number, d: number, e: number) => void;
+  readonly decode: (a: number) => number;
+  readonly encode: (a: number, b: number) => number;
+  readonly encode_binary: (a: number, b: number) => number;
+  readonly decode_binary: (a: number) => number;
   readonly __wbindgen_malloc: (a: number) => number;
   readonly __wbindgen_realloc: (a: number, b: number, c: number) => number;
-  readonly __wbindgen_add_to_stack_pointer: (a: number) => number;
-  readonly __wbindgen_free: (a: number, b: number) => void;
 }
 
 export type SyncInitInput = BufferSource | WebAssembly.Module;
