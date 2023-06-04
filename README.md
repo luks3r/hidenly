@@ -11,6 +11,11 @@ Hide your secrets within your messages. The algorithm converts any text into inv
 - Open-source (yaaaay!)
 - Uses WASM to provide the best performance
 
+## What it currently lacks?
+
+- **The current implementation only allows images under 10-20 kilobytes.** Multiple megabytes of image raw binary is hard to hide within simple messages like "hello" and results in a few thousand character string "hello" (invisible Unicode...).
+- **Some messengers might still not allow or support a few Unicode characters.** There are a limited amount of invisible Unicode characters available and it is hard to make every messenger support it.
+
 ## Building
 
 To create a production release, build with:
