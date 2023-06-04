@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { FileButton, clipboard } from '@skeletonlabs/skeleton';
 	import { hideMessage } from '$lib/hidenly';
+	import { Gzip, Gunzip } from 'zlibt2';
 
 	export let shown = '';
 	export let hidden = '';
@@ -13,6 +14,7 @@
 	async function imageToBase64(image: File): Promise<string> {
 		const arrayBuffer: ArrayBuffer = await image.arrayBuffer();
 		const uint8Array = new Uint8Array(arrayBuffer);
+
 		let binaryString: string = '';
 		uint8Array.forEach((byte) => {
 			binaryString += String.fromCharCode(byte);
@@ -21,10 +23,28 @@
 		return btoa(binaryString);
 	}
 
+	function unicodeStringToNumberArray(str: string): number[] {
+		const encoder = new TextEncoder();
+		const encodedBytes = encoder.encode(str);
+		const numberArray = Array.from(encodedBytes);
+		return numberArray;
+	}
+
+	function numberArrayToUnicodeString(numberArray: number[]): string {
+		const uint8Array = new Uint8Array(numberArray);
+		const decoder = new TextDecoder();
+		const unicodeString = decoder.decode(uint8Array);
+		return unicodeString;
+	}
+
 	async function hideImage(shown: string, image: File): Promise<string> {
 		const convertedImage: string = await imageToBase64(image);
 		const imageWithMeta = `data:${image.type};base64,${convertedImage}`;
-
+		console.log(imageWithMeta);
+		const gzip = new Gzip(unicodeStringToNumberArray(imageWithMeta));
+		const compressedImageArray = gzip.compress() as number[];
+		const compressedImageString = numberArrayToUnicodeString(compressedImageArray);
+		console.log(compressedImageString);
 		return hideMessage(shown, imageWithMeta);
 	}
 
@@ -32,7 +52,7 @@
 		const firstFile: File = (e.target as HTMLInputElement)?.files?.item(0)!;
 		const baseEncoded = await imageToBase64(firstFile);
 		image = `data:${firstFile.type};base64,${baseEncoded}`;
-		encodedImage = await hideImage(shown, firstFile);
+		await hideImage(shown, firstFile);
 	}
 </script>
 
