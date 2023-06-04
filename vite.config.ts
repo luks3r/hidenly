@@ -34,14 +34,14 @@ export default defineConfig({
 		wasm(),
 		topLevelAwait(),
 	],
-	worker: {
-		plugins: [wasm(), topLevelAwait()],
-	},
 	server: {
 		fs: {
-		  // Allow serving files from one level up to the project root
-		  allow: ['..'],
-		  deny: ['.git', '.svn', '.cache', '.idea', '.vs', '.vscode', "node_modules", ".github"],
+			// Allow serving files from one level up to the project root
+			allow: ['..'],
+			deny: ['.git', '.svn', '.cache', '.idea', '.vs', '.vscode', "node_modules", ".github"],
 		},
-	  },
+	},
+	optimizeDeps: {
+		exclude: ["wasm-bindgen-module"],
+	},
 });
