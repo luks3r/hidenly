@@ -44,10 +44,7 @@
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<div class="flex items-center">
-					<a href="{base}/" class="no-underline hover:no-underline text-inherit">
-						<GithubIcon width="24" />
-					</a>
-					<a href="{base}/" class="no-undeline hover:nounderline text-inherit">
+					<a href="https://github.com/luks3r/hidenly" class="no-underline hover:no-underline text-inherit">
 						<GithubIcon width="24" />
 					</a>
 				</div>
