@@ -41,7 +41,7 @@
 
 {#if hiddenType == 'image'}
 	<h3>Image</h3>
-	<FileButton name="imageToHide" on:change={onFileChange} />
+	<FileButton class="btn variant-filled" name="imageToHide" on:change={onFileChange} />
 	<br />
 	<img src={image} width="300" alt="" />
 	<br /><br />
