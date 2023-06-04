@@ -1,22 +1,24 @@
-# create-svelte
+# Hidenly
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Hide your secrets within your messages. The algorithm converts any text into invisible Unicode characters and hides it inside any message. It is also capable of hiding images!
 
-## Creating a project
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Features
 
+- Encode text and images inside any string
+- Decode the string into a hidden message or an image
+- Share encoded messages by any modern messenger
+- Open-source (yaaaay!)
+- Uses WASM to provide the best performance
+
+## Building
+
+To create a production release, build with:
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+npm run build
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+For development use following commands:
 
 ```bash
 npm run dev
@@ -25,14 +27,9 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+## Notes
 
-To create a production version of your app:
+Thanks to [Steganographr](https://github.com/neatnik/steganographr) project for the inspiration for the project
+## License
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Licensed under [MIT License](LICENSE)
