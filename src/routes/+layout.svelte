@@ -4,12 +4,11 @@
 	import '../app.postcss';
 	import './styles.css';
 
-	import GithubIcon from '$lib/images/github.svg?component';
+	import GitHubIcon from '$lib/images/github.svg?component';
 
 	import { AppBar, AppShell } from '@skeletonlabs/skeleton';
 	import { Drawer, drawerStore } from '@skeletonlabs/skeleton';
 
-	import { base } from '$app/paths';
 	import Navigation from '$lib/navigation/Navigation.svelte';
 
 	function drawerOpen(): void {
@@ -44,8 +43,11 @@
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<div class="flex items-center">
-					<a href="https://github.com/luks3r/hidenly" class="no-underline hover:no-underline text-inherit">
-						<GithubIcon width="24" />
+					<a
+						href="https://github.com/luks3r/hidenly"
+						class="no-underline hover:no-underline text-inherit"
+					>
+						<GitHubIcon width="24" />
 					</a>
 				</div>
 			</svelte:fragment>

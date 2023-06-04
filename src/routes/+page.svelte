@@ -3,10 +3,8 @@
 	import UnhideCard from '$lib/cards/UnhideCard.svelte';
 	import { TabGroup, Tab } from '@skeletonlabs/skeleton';
 
-
 	let tabSet: number = 0;
 	let hiddenType: 'text' | 'image' = 'text';
-
 </script>
 
 <div class="container p-10 space-y-4">
@@ -22,9 +20,9 @@
 			</select>
 			<br /><br />
 			{#if tabSet === 0}
-				<HideCard hiddenType={hiddenType} />
+				<HideCard {hiddenType} />
 			{:else if tabSet === 1}
-				<UnhideCard hiddenType={hiddenType} />
+				<UnhideCard {hiddenType} />
 			{/if}
 		</svelte:fragment>
 	</TabGroup>

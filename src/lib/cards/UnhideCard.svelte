@@ -62,7 +62,7 @@
 		<textarea class="textarea" data-clipboard="decodedText" value="Generating..." />
 		<button class="btn btn-sm mr-4 variant-filled" disabled={true}>Copy</button>
 	{:then text}
-		<textarea class="textarea" data-clipboard="decodedText" value={text} />
+		<textarea class="textarea" data-clipboard="decodedText" value={text ?? ""} />
 		<button class="btn btn-sm mr-4 variant-filled" use:clipboard={{ input: 'decodedText' }}
 			>Copy</button
 		>
